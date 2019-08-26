@@ -16,6 +16,5 @@ This project is a AngularJS web app.
 ## How to use
 
 1. clone or download;
-2. `npm install`;
-3. `yarn`;
-4. `gulp`;
+2. `yarn`;
+3. `gulp`;
