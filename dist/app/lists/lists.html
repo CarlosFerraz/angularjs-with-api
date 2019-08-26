@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Todo List App</h1>
+  <form ng-submit="vm.create(vm.record)" class="form-group">
+      <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Create a new task" ng-model="vm.record.description">        
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+        <!-- <input type="text" class="form-control" placeholder="Create a new task" ng-model="vm.record.description"> -->
+  </form>
+  <!-- <form ng-submit="vm.searchTask(vm.search)" class="form-group">
+      <input type="text" class="form-control" placeholder="Search tasks" ng-model="vm.search">
+</form> -->
+  <ul class="list-group">
+    <li class="list-group-item">
+        <form ng-submit="vm.searchTask(vm.search)" class="">
+          <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Search tasks" ng-model="vm.search">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+        </form>
+      <!-- <form ng-submit="vm.searchTask(vm.search)" class="">
+          <input type="text" class="form-control" placeholder="Search tasks" ng-model="vm.search">
+      </form> -->
+    </li>
+    <li class="list-group-item" ng-class="{'list-group-item-secondary': task.done}" ng-repeat="task in vm.list | orderBy: 'done'">
+      <div class="row">
+        <div class="col-sm">{{task.description}}</div>
+        <div class="col-sm text-right">
+            <button type="button" class="btn btn-link text-danger" ng-click="vm.remove(task.id)"><i class="fas fa-trash" ></i></button>
+            <a class="btn btn-link" ui-sref="edit(task)"><i class="fas fa-edit"></i></a>
+            <button type="button" class="btn btn-link text-success" data-toggle="button" ng-click="vm.toggleDone(task)"><i class="fas fa-{{task.done ? 'check-circle' : 'circle'}}"></i></button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

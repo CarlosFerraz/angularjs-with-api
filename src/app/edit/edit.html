@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Edit task</h2>
+  <div class="alert alert-danger" ng-if="vm.error">
+    {{vm.message}}
+  </div>
+  <div class="alert alert-success" ng-if="vm.success">
+      Task has been successfully saved!
+      <a ui-sref="list">Return to list</a>
+    </div>
+  <div class="form-group">
+    <input type="text" class="form-control" ng-model="vm.record.description">
+  </div>
+  <button type="button" class="btn btn-primary" ng-click="vm.edit(vm.record)">Save</button>
+  <a class="btn btn-danger" ui-sref="list">Cancel</button>
+</div>
